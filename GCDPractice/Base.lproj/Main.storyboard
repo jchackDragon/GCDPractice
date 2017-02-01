@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GCDPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,67 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v9b-D1-LFW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vIP-KH-9nE">
+                                <rect key="frame" x="176" y="324" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="1LB-UB-zEK"/>
+                                    <constraint firstAttribute="height" constant="40" id="cVz-Om-Qci"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HEk-B9-ySf">
+                                <rect key="frame" x="14" y="318" width="347" height="31"/>
+                                <connections>
+                                    <action selector="changeOpacity:" destination="BYZ-38-t0r" eventType="valueChanged" id="gnG-ak-ZX3"/>
+                                </connections>
+                            </slider>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvY-rN-1Tu">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Sync" id="8cd-bT-JYq">
+                                        <connections>
+                                            <action selector="synchronousDownload:" destination="BYZ-38-t0r" id="t5B-Uh-Cxo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="8jY-OT-6bJ"/>
+                                    <barButtonItem title="Async" id="Xw0-Nb-UR4">
+                                        <connections>
+                                            <action selector="asynchronousDownload:" destination="BYZ-38-t0r" id="BO3-yI-a5Z"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="0r5-DR-wlJ"/>
+                                    <barButtonItem title="Async whit closure" id="MtB-th-0Mt">
+                                        <connections>
+                                            <action selector="asynchronousDownloadWithScapinClosure:" destination="BYZ-38-t0r" id="4xn-Uw-gCC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HEk-B9-ySf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7kR-84-KGd"/>
+                            <constraint firstItem="HEk-B9-ySf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="298" id="PuZ-5M-5Rq"/>
+                            <constraint firstItem="MvY-rN-1Tu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Sl7-28-ocC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MvY-rN-1Tu" secondAttribute="bottom" id="UD0-yf-har"/>
+                            <constraint firstItem="vIP-KH-9nE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="303" id="UR7-RK-IjO"/>
+                            <constraint firstItem="HEk-B9-ySf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="h8Q-wy-rbJ"/>
+                            <constraint firstItem="vIP-KH-9nE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="159" id="hgk-j3-tZL"/>
+                            <constraint firstAttribute="trailing" secondItem="MvY-rN-1Tu" secondAttribute="trailing" id="q4K-b1-9zS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="vIP-KH-9nE" id="8Co-ht-c2M"/>
+                        <outlet property="photoImage" destination="v9b-D1-LFW" id="d9W-cP-xNk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
